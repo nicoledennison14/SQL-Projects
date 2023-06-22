@@ -1,0 +1,75 @@
+/* Create table about the people and what they do here */
+CREATE TABLE authors (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fullname TEXT,
+    age INTEGER);
+    
+INSERT INTO authors (fullname, age) VALUES ("Jana Deleon", "45");
+INSERT INTO authors (fullname, age) VALUES ("Leslie Langtry", "52");
+INSERT INTO authors (fullname, age) VALUES ("Megan Quinn", "33");
+INSERT INTO authors (fullname, age) VALUES ("Lauren Blakely", "47");
+INSERT INTO authors (fullname, age) VALUES ("Allison Brennan", "49");
+INSERT INTO authors (fullname, age) VALUES ("Mary Burton", "60");
+INSERT INTO authors (fullname, age) VALUES ("James Patterson", "71");
+
+CREATE table genres (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    person_id INTEGER,
+    name TEXT,
+    books TEXT); 
+    
+INSERT INTO genres (person_id, name, books) VALUES (1, "mystery", "Later Gator");
+INSERT INTO genres (person_id, name, books) VALUES (2, "comedy", "Mardi Gras Murder");
+INSERT INTO genres (person_id, name, books) VALUES (3, "romance","Co-Wrecker");
+INSERT INTO genres (person_id, name, books) VALUES (4, "suspense", "Big Rock");
+INSERT INTO genres (person_id, name, books) VALUES (5, "romance", "Silenced");
+INSERT INTO genres (person_id, name, books) VALUES (6, "suspense", "Merciless");
+INSERT INTO genres (person_id, name, books) VALUES (7, "mystery", "NYPD Red"); 
+
+CREATE table birthplace (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    person_id INTEGER,
+    name TEXT);
+    
+INSERT INTO birthplace (person_id, name) VALUES (1, "Louisiana");  
+INSERT INTO birthplace (person_id, name) VALUES (2, "Iowa");
+INSERT INTO birthplace (person_id, name) VALUES (3, "Pennsyvania");
+INSERT INTO birthplace (person_id, name) VALUES (4, "California"); 
+INSERT INTO birthplace (person_id, name) VALUES (5, "California");
+INSERT INTO birthplace (person_id, name) VALUES (6, "Virginia");
+INSERT INTO birthplace (person_id, name) VALUES (7, "New York");
+
+Selected all authors
+SELECT * FROM authors;
+
+Selected all birthplaces
+SELECT * FROM birthplace;
+
+Selected all book genres
+SELECT * FROM genres;
+
+Author names and genres
+SELECT a.fullname, g.name
+FROM authors a
+JOIN genres g
+ON a.id=person_id;
+
+Only James Patterson's books
+SELECT a.fullname, g.name
+FROM authors a
+JOIN genres g
+WHERE a.fullname="James Patterson";
+
+List of authors birthplaces
+SELECT a.fullname, g.name 
+FROM authors a
+LEFT OUTER JOIN birthplace b
+ON a.id=b.id; 
+
+List of authors by age descending attached to their birthplace
+SELECT a.fullname, g.name
+from authors a
+left outer join birthplace b
+on a.id=b.id 
+group by a.fullname
+order by age desc; 
