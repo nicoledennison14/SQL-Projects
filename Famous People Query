@@ -39,34 +39,34 @@ INSERT INTO birthplace (person_id, name) VALUES (5, "California");
 INSERT INTO birthplace (person_id, name) VALUES (6, "Virginia");
 INSERT INTO birthplace (person_id, name) VALUES (7, "New York");
 
-Selected all authors
+# Selected all authors
 SELECT * FROM authors;
 
-Selected all birthplaces
+# Selected all birthplaces
 SELECT * FROM birthplace;
 
-Selected all book genres
+# Selected all book genres
 SELECT * FROM genres;
 
-Author names and genres
+# Author names and genres
 SELECT a.fullname, g.name
 FROM authors a
 JOIN genres g
 ON a.id=person_id;
 
-Only James Patterson's books
+# Only James Patterson's books
 SELECT a.fullname, g.name
 FROM authors a
 JOIN genres g
 WHERE a.fullname="James Patterson";
 
-List of authors birthplaces
+# List of authors birthplaces
 SELECT a.fullname, g.name 
 FROM authors a
 LEFT OUTER JOIN birthplace b
 ON a.id=b.id; 
 
-List of authors by age descending attached to their birthplace
+# List of authors by age descending attached to their birthplace
 SELECT a.fullname, g.name
 from authors a
 left outer join birthplace b
