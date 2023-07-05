@@ -30,8 +30,15 @@ INSERT INTO selling VALUES (15, "Glitter", 50, 3);
 --display the database by the amount.
 SELECT SUM (quantity) FROM selling;
 
---display the databse by price.
-SELECT PRICE FROM selling;
+--display the database by price.
+SELECT * FROM selling
+ORDER BY price desc
+
+--what are the 3 most bought items?
+SELECT name, price
+FROM store
+ORDER BY quantity
+LIMIT 3;
 
 
 
