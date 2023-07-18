@@ -1,0 +1,11 @@
+Utlizing data from Chinook zip file. It represents a digital media store and includes tables for artists, albums, media tracks, invoices, 
+and customers.
+
+1. Show customers not in France. (full names, customer ID & country will be included).
+SELECT FirstName, LastName, CustomerId, Country 
+FROM chinook.customers 
+WHERE Country != "France";
+
+2. Show only customers from the United Kingdom. (Includes address, fulll names, company, zip code, phone number and fax nunber).
+SELECT * FROM chinook.customers 
+WHERE Country = "Brazil" ;
