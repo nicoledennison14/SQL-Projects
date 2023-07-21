@@ -8,7 +8,7 @@ WHERE Country != "France";
 
 2. Show only customers from the United Kingdom. (Includes address, fulll names, company, zip code, phone number and fax nunber).
 SELECT * FROM chinook.customers 
-WHERE Country = "United Kingdom" ;
+WHERE Country = "United Kingdom";
 
 3. Find the Invoices of customers who are from the USA. The resulting table should show the customer's full name, 
 Invoice ID, Date of the invoice, and billing country.
